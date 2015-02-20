@@ -1,0 +1,59 @@
+/*for hint page*/
+.cardImg{
+	margin:20px;
+	margin-top: 35px;
+	margin-left: 35px;
+}
+.cardImgThirdLine{
+	margin: 20px;
+	margin-top:20px;
+	margin-left: 35px;
+	/*this is for card images on cards with two lines of text*/
+}
+.helpText{
+	font-size: 30px;
+}
+#a{ 
+	z-index: 0; 
+	top:220px;
+}
+#b{ 
+	z-index: 1; 
+	top:760px;
+}
+#c{ 
+	z-index: 2; 
+	top:1300px;
+}
+#d{ 
+	z-index: 3; 
+	top:1840px;
+}
+#e{
+	z-index: 4;
+	top:2380px;
+}
+#f{
+	z-index: 5;
+	top: 2920px;
+	margin-bottom: 40px;
+
+}
+.navButt{
+	background-color: #55AA55;
+	border-radius:40px;
+	border-bottom-right-radius:140px;
+	
+	width: 220px;
+	
+	margin:20px;
+	margin-left:40px;
+
+	padding:3px;
+	padding-left:10px;
+}
+#getStarted{
+	width:500px;
+	margin:10px;
+	margin-top:30px;
+}

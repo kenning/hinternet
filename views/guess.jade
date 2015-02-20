@@ -1,0 +1,32 @@
+extends hintLayout
+
+block content
+	.gamecontainer
+		if(session.guessSubmitError)
+			p= session.guessSubmitError
+		|Your hint is: "#{session.heldHintObject.hintText}"	
+		div(style="font-size:20px") Hint supplied by: #{session.heldHintObject.author}
+		form(method="post" action="guessSubmit")
+			.imgbox <img src=#{imgList.ImgUrl1} class='hintimg'>
+			.imgbox <img src=#{imgList.ImgUrl2} class="hintimg">
+			.imgbox <img src=#{imgList.ImgUrl3} class="hintimg">
+			.imgbox <img src=#{imgList.ImgUrl4} class="hintimg">
+			.imgbox <img src=#{imgList.ImgUrl5} class="hintimg">
+			.imgbox <img src=#{imgList.ImgUrl6} class="hintimg"> 
+			<br />
+			input(id="img1" type="radio" class='radio' name='group1' value="1")
+			label(for="img1" id="1" class='selbox') Select
+			input(id="img2" type="radio" class='radio' name='group1' value="2")
+			label(for="img2" id="2" class='selbox') Select
+			input(id="img3" type="radio" class='radio' name='group1' value="3")
+			label(for="img3" id="3" class='selbox') Select
+			input(id="img4" type="radio" class='radio' name='group1' value="4")
+			label(for="img4" id="4" class='selbox') Select
+			input(id="img5" type="radio" class='radio' name='group1' value="5")
+			label(for="img5" id="5" class='selbox') Select
+			input(id="img6" type="radio" class='radio' name='group1' value="6")
+			label(for="img6" id="6" class='selbox') Select
+			br/
+			.hintcontainer(style="width:320px")
+				input(type="submit" id='submitBox' value="Make guess!")
+			

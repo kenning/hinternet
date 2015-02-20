@@ -1,0 +1,59 @@
+extends helpLayout
+
+block content
+	#windowWrap
+		.queuePage#a.helpText
+			table
+				tr
+					td
+						.cardNum <strong> 1
+					td
+						x The hinter chooses a picture and makes a hint about it.
+			<img class="cardImg" src="images/help/page 1.gif">
+
+		.queuePage#b.helpText
+			table
+				tr
+					td
+						.cardNum <strong> 2
+					td
+						x Many guessers try to guess which picture the hint was for.
+			<img class="cardImg" src="images/help/page 2.gif">
+		.queuePage#c.helpText
+			table
+				tr
+					td
+						.cardNum <strong> 3
+					td
+						x If the hinter guesses right, they get a coin!
+			<img class="cardImg" src="images/help/page 3.gif">
+		.queuePage#d.helpText
+			table
+				tr
+					td
+						.cardNum <strong> 4
+					td
+						x The hinter gets coins depending on how many of the guessers  
+				tr
+					td
+						.cardNum
+					td
+						x were correct. The hinter's goal is to get as close to 50% as possible.
+			<img class="cardImgThirdLine" src="images/help/page 4.gif">
+		.queuePage#e.helpText
+			table
+				tr
+					td
+						.cardNum <strong> 5
+					td
+						x If 50% guessers are right (±5%), the hint enters the hall of fame
+				tr
+					td
+						.cardNum 
+					td
+						x for people to guess forever!
+			<img class="cardImgThirdLine" src="images/help/page 5.gif">
+		.queuePage#f
+			.cardTitle#getStarted Get started! <br /> <br />
+			.navButt(style="width:400px") <a url="/guess"> Make a guess!
+			.navButt(style="width:400px") <a url="/hint"> Make a hint! (Costs 4 coins)

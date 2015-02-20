@@ -1,0 +1,27 @@
+extends hintLayout
+
+block content
+	if(createdHintList.length == 0)
+		.gameContainer
+			.spacer
+				|You haven't made any hints yet! 
+	if(createdHintList.length !== 0)		
+		div.spacer
+			each hint in createdHintList
+				table.miniQueuePage
+					tr(style="height:200px")
+						td(style="width:40px")
+						td(style="width:240px")
+							div(style="width:150px" class="imgbox")
+								<img src='#{hint.correctImageUrl}' class="hintimg">
+						td
+							.userPageData
+								|Your hint was:
+								br/
+								strong "#{hint.hintText}" 
+								br/
+								|Hall of fame: #{hint.fame}
+							.userPageData
+								|Correct guesses: #{hint.correctGuesses}
+								br/
+								|Incorrect guesses: #{hint.incorrectGuesses}

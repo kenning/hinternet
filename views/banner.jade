@@ -1,0 +1,49 @@
+#bannerNavButtonWrapper
+	a(href="/guess" class="bannerNavButton") Make a guess 
+	a(href="/hint" class="bannerNavButton") Make a hint
+	a(href="/userPage" class="bannerNavButton") Check your hints
+#bannerWrapper
+	.title
+		strong= title 
+	.login
+		if(session.login)
+			table(style="height:134px")
+				tr
+					td
+						<img src="/images/icon inv colors.gif" style="margin-right:20px"> 
+					td
+						a(class="bannerNavButton" href="/userPage") #{session.login}
+						table
+							tr
+								td
+									<img src="/images/coin.gif" height="50px"> 
+								td.coin
+									|#{session.coins} 
+								td
+									form(action="/forget")	 
+										button(type="submit").bannerLogoutButton Logout
+		else
+			form(method="post" action="/login")
+				table(style="height:134px")
+					tr
+						td
+							<img src="/images/icon inv colors.gif" style="margin-right:20px"> 
+						td
+							input(type="text" name="usernameLogin" placeholder="Username")
+							br/
+							input(type="text" name="passwordLogin" placeholder="Password") 
+							if(session.loginError)
+								.error
+									.left
+										|#{session.loginError}
+							else
+								.error
+									br/
+							.center(style="display:inline-block")
+								table
+									tr
+										td
+											<input type="submit" value="Login" class="bannerLogoutButton"></form> 
+										td
+											form(action="/register")	 
+												button(type="submit").bannerLogoutButton Register

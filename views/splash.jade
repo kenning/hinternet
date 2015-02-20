@@ -1,0 +1,14 @@
+extends registerLayout
+
+block content
+	#windowWrap
+		.queuePage
+			table.center
+				tr
+					td
+						#welcome Welcome!
+						img(src="images/hinternet icon big.png").iconBig
+					td
+						.asdf(style="text-align: left") <br />Hinternet Jr. is a game that uses random images from the internet.<br />To win, just match the hint you're given with the correct image.<br /><br />
+						form(action="/help" class="left")
+							input(type="submit" value="How to play" class="navButt")

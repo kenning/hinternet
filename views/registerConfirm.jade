@@ -1,0 +1,13 @@
+extends registerLayout
+
+block content
+	#windowWrap
+		.queuePage
+			.cardNumWide  
+				strong Successfully registered!<br />
+			form(action="/help")
+				button.navButt How to play
+			form(action="/guess")
+				button.navButt Make a guess!
+			form(action="/hint")
+				button.navButt Make a hint!

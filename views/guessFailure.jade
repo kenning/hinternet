@@ -1,0 +1,12 @@
+extends registerLayout
+
+block content
+	#windowWrap
+		.queuePage
+			.cardNumWide  
+				strong Incorrect guess! The right guess was 
+				.imgbox img(src=#{correctGuess})
+			.navButt#guessLink
+				|Guess again
+			.navButt#hintLink
+				|Make a hint

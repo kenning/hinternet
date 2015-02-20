@@ -1,0 +1,213 @@
+body{
+	margin:0;
+	padding: 0;
+	font-family: 'Ubuntu', sans-serif;
+	font-size:25px;
+}
+#bannerWrapper{
+	background-color: #55AA55;
+	margin: 15px;
+	width: 98%;
+	min-width: 1200px;
+	/*height: 150px;*/
+	position:fixed;
+	z-index: 5;
+	top:0px;
+
+	border-style:solid;
+	border-width:2px;
+	border-color:#ffffff;
+	border-radius:20px;
+	border-bottom-right-radius:170px;
+}
+.title{
+	position: relative;
+	padding-top:24px;
+	font-size: 50px;
+	font-family: 'Pacifico', cursive;
+	float:left;
+
+	text-indent:20px;
+	min-width: 700px;
+}
+#bannerNavButtonWrapper{
+	/*height: 150px;*/
+	position:fixed;
+	z-index: 6;
+	top:0px;
+	width:800px;
+
+	margin-left:40px;
+	margin-top:130px;
+}
+.bannerNavButton{
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 20px;
+	color: #000000	;
+	text-decoration: none;
+
+	float:left;
+	text-align: left;
+	text-indent: 15px;
+
+	width: 200px;
+	
+	margin:10px;
+	padding:10px;
+	
+	border-style:solid;
+	border-width:2px;
+	border-color:#ffffff;
+	border-radius:30px;
+	border-bottom-right-radius:140px;
+
+	background-color: #88cc88;
+}
+.login{
+	/*display:inline-block;*/
+	float:right;
+	width: 400px;
+	margin:10px;
+	height:130px;
+}
+.loginSubDiv{
+	float:left;
+
+	display:inline-block;
+	width:100px;
+	height:100px;
+	margin-top:0px;
+}
+.bannerLogoutButton{
+	font-size:15px;
+	font-family: 'Ubuntu', sans-serif;
+
+	vertical-align:middle;
+	text-align:left;
+
+	width:80px;
+	height:30px;
+
+	border-style:solid;
+	border-width:2px;
+	border-color:#ffffff;
+	border-radius:30px;
+	border-bottom-right-radius:140px;
+
+	background-color:#88cc88;
+}
+.coin {
+	position: relative;
+	font-size:30px;
+	text-indent: 10px;
+	top: 50%;
+	width:60px;
+}
+
+#windowWrap{ margin-top:180px; }
+.queuePage{
+	position:absolute;
+	width:1200px;
+	height:400px;
+
+	left:100px;
+	margin:20px;
+	padding:10px;
+
+	background-color: #88cc88;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #ffffff;
+	border-radius: 40px;
+	border-bottom-right-radius: 400px;
+	line-height: 50px;
+
+	font-family: 'Ubuntu', sans-serif;
+}
+.cardNum{
+	font-size: 80px;
+	width: 50px;
+	margin: 5px;
+	left: 0px;
+	font-family: 'Pacifico', cursive;
+}
+#welcome{
+	font-size: 50px;
+	width: 200px;
+	margin: 35px;
+	margin-left:20px;
+	margin-right:50px;
+	left: 0px;
+	font-family: 'Pacifico', cursive;	
+
+}
+.cardTitle{
+	font-size: 50px;
+	width: 240px;
+	margin: 15px;
+	margin-left:30px;
+	margin-right:50px;
+	margin-bottom:0px;
+	left: 0px;
+	font-family: 'Pacifico', cursive;	
+}
+.cardNumWide{
+	font-size: 50px;
+	width: 1000px;
+	margin: 20px;
+	left: 0px;	
+}
+.iconBig{
+	margin:40px;
+	margin-left:65px;
+	width:100px;
+	height:auto;
+}
+/*buttons*/
+#buttonWrap{ 
+	position: absolute;
+	top:680px; 
+	left:100px;
+}
+.navButt{
+	background-color: #55AA55;
+	border-radius:40px;
+	border-bottom-right-radius:140px;
+
+	font-size:30px;
+	font-family: 'Ubuntu', sans-serif;
+	text-indent: 10px;
+	text-align: left;
+
+	width: 250px;
+
+	margin:30px;
+	margin-top:10px;
+	margin-left:50px;
+
+	border-style:solid;
+	border-width:2px;
+	border-color:#ffffff;
+
+	padding:8px;
+	padding-left:10px;
+}
+.center{
+	text-align:center;
+}
+.right{
+	text-align:right;
+}
+.left{
+	text-align:left;
+}
+.inline{
+	display:inline;
+}
+.error{
+	width:280px;
+	font-size:13px;
+	line-height: 15px;
+	text-align: right;
+}
+/*temporary*/

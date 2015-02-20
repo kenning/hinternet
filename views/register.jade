@@ -1,0 +1,53 @@
+extends registerLayout
+
+block content
+	#windowWrap
+		.queuePage#g.right(style="font-size:20px")
+			table
+				tr
+					td
+						.cardTitleSpacer.center
+							.cardTitle New User
+							img(src="images/icon thinking.png" width="125px" height="200px").iconBig
+					td
+						.center
+							br/
+							|Please supply a username, password and hint in case you forget.
+							if(session.unregisteredError)
+								
+						form(method="post")
+							table.table
+								tr
+									td.spacer
+										|Username: 
+										input(type="text" name="usernameSubmit")
+										if(session.usernameError)
+											.error= session.usernameError
+								tr
+									td
+										|Password:
+										input(type="password" name="passwordSubmit")
+										if(session.password1Error)
+											.error= session.password1Error
+									td
+										.spacerSecondColumn
+											|Password again:
+											input(type="password" name="passwordSecondSubmit")
+											if(session.password2Error)
+												.error= session.password2Error
+								tr
+									td
+										|Security hint:
+										input(type="text" name="passwordHintSubmit" placeholder='ex. "What is delicious?"')
+										if(session.hintError)
+											.error= session.hintError
+									td
+										.spacerSecondColumn 
+											|Security answer:
+											input(type="text" name="passwordAnswerSubmit" placeholder='ex. "Candy"')
+											if(session.answerError)
+												.error= session.answerError
+							div.center
+								input(type="submit" value="Register")
+
+								p= session.userName
