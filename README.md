@@ -1,3 +1,3 @@
-The OpenShift `nodejs` cartridge documentation can be found at:
+`Hinternet` is a web game using images grabbed from Imgur's API.
 
-http://openshift.github.io/documentation/oo_cartridge_guide.html#nodejs
+Written in Node and MongoDB. Hosted on Azure and Mongolab.
