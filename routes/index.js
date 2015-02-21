@@ -13,9 +13,9 @@ var db = monk(connectionString);
 //var db = monk('localhost:27017/testdb');
 
 var urlList = db.get('testUrlList3');
-var users = db.get('testUsers');
-var hintList = db.get('testHintList');
-var guessList = db.get('testGuessList');
+var users = db.get('userlist');
+var hintList = db.get('hintlist');
+var guessList = db.get('guesslist');
 
 router.use(cookieparser()); //this apparently has to be before session
 router.use(session({secret: 'bobDoleKenning5535',
