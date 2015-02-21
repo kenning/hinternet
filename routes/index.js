@@ -10,6 +10,8 @@ var http = require('http');
 
 var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
 var db = monk(connectionString);
+//var db = monk('localhost:27017/testdb');
+
 var urlList = db.get('testUrlList3');
 var users = db.get('testUsers');
 var hintList = db.get('testHintList');
@@ -406,6 +408,8 @@ router.post('/register', function(req, res) {
 				urlList.findOne({Unused:true}, function(err, doc){
 					console.log('Creating new user');
 					console.log('Username: ' + req.body.usernameSubmit);
+					console.log(doc);
+					console.log("see, the doc is there.");
 					users.insert({	username: req.body.usernameSubmit,
 									password: req.body.passwordSubmit,
 									passwordHint: req.body.passwordHintSubmit,
@@ -415,17 +419,21 @@ router.post('/register', function(req, res) {
 									nextHintImgId: doc._id}, 
 
 									function(error, info){
-										req.session.login = req.body.usernameSubmit;
-										req.session.nextHintImgId = doc._id;
-										req.session.coins = 10;
+										if(error) {
+											console.log(error);
+										} else {
+											req.session.login = req.body.usernameSubmit;
+											req.session.nextHintImgId = doc._id;
+											req.session.coins = 10;
 
-										doc.Unused = false;
+											doc.Unused = false;
 
-										console.log('Done! Here is the doc: ' + doc);
+											console.log('Done! Here is the doc: ' + doc);
 
-										urlList.update({_id:doc._id}, doc);
+											urlList.update({_id:doc._id}, doc);
 
-										res.redirect('/register-confirm');
+											res.redirect('/register-confirm');
+										}
 									}
 					);
 				});
