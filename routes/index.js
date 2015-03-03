@@ -27,7 +27,7 @@ router.use(bodyparser());
 //SPLASH
 //
 router.get('/', function(req, res) {
-	res.render('splash', { 	title: 'Hinternet Jr.', 
+	res.render('splash', { 	title: 'Hinternet', 
 							session: req.session });
 });
 
