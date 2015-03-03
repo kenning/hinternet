@@ -1,8 +1,10 @@
 $(document).ready(function () {
    $('.navButt, .bannerNavButton, .bannerLogoutButton').hover(function(){
       $(this).css('cursor', 'pointer');
+      $(this).css('background-color:#aaeeaa');
    }, function(){
       $(this).css('cursor', 'auto');
+      $(this).css('background-color:#88cc88');
    });
 
    $('#guessLink').click(function(){
