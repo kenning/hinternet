@@ -8,9 +8,9 @@ var cookieparser = require('cookie-parser');
 
 var http = require('http');
 
-var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
-var db = monk(connectionString);
-//var db = monk('localhost:27017/testdb');
+//var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
+//var db = monk(connectionString);
+var db = monk('localhost:27017/testdb');
 
 var urlList = db.get('testUrlList3');
 var users = db.get('userlist');
@@ -128,7 +128,7 @@ router.post('/hintSubmit', function(req, res){
 	else {
 		delete req.session.hintSubmitError;
 		if(!inputSanitize(req.body.hint))
-			req.session.hintSubmitError = "Please submit a valid hint, only using A-Z, 1-9, ! . and ?";
+			req.session.hintSubmitError = "Please submit a valid hint under 26 characters, only using A-Z, 1-9, ! . and ?";
 		if(req.body.group1 === 0)
 			req.session.hintSubmitError = "Please choose an image before making a hint";
 		if(!req.session.login && !inputSanitize(req.body.hint))
@@ -468,7 +468,7 @@ router.get('/register-confirm', function(req, res){
 //UTILITIES
 //
 function inputSanitize(userInput){
-	if(userInput.match(/^[ 0-9a-zA-Z?.!]{1,16}$/)) {
+	if(userInput.match(/^[ 0-9a-zA-Z?.!]{1,26}$/)) {
 		console.log(userInput + " is valid");
 		return true;
 	}

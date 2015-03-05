@@ -51,11 +51,11 @@ $(document).ready(function () {
 			//if an image is selected, deselects it and its select box
 			$('.imgbox').animate({
 				backgroundColor:"#55aa55",
-				width:'140px'
+				width:'110px'
 			}, 200);
 			$('.selbox').animate({
 				backgroundColor:"#55aa55",
-				width:'140px'
+				width:'110px'
 			}, 200);
 			//This selection box and its image both stop animating 
 			$(this).stop();
@@ -64,7 +64,7 @@ $(document).ready(function () {
 			{
 				backgroundColor:"#2d882d",
 			    color:"#888888",
-			    width:"200px"
+			    width:"150px"
 			}, 	200, function(){ 
 				//text flash
 				$(this).animate(
@@ -78,7 +78,7 @@ $(document).ready(function () {
 			{
 				backgroundColor:"#2d882d",
 			    color:"#888888",
-			    width:"200px"
+			    width:"150px"
 			}, 	200);
 		}
 	);

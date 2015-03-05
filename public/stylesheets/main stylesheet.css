@@ -2,12 +2,12 @@ body{
 	margin:0;
 	padding: 0;
 	font-family: 'Ubuntu', sans-serif;
-	font-size:25px;
+	font-size:20px;
 }
 #bannerWrapper{
 	background-color: #55AA55;
 	margin: 15px;
-	width: 98%;
+	width: 93%;
 	min-width: 1200px;
 	/*height: 150px;*/
 	position:fixed;
@@ -19,15 +19,17 @@ body{
 	border-color:#ffffff;
 	border-radius:20px;
 	border-bottom-right-radius:170px;
+	padding-left: 40px;
+	height:125px;
 }
 .title{
 	position: relative;
-	padding-top:24px;
+	padding-top:10px;
 	font-size: 50px;
 	font-family: 'Pacifico', cursive;
 	float:left;
 
-	text-indent:20px;
+	text-indent:10px;
 	min-width: 700px;
 }
 #bannerNavButtonWrapper{
@@ -38,7 +40,7 @@ body{
 	width:800px;
 
 	margin-left:40px;
-	margin-top:130px;
+	margin-top:110px;
 }
 .bannerNavButton{
 	font-family: 'Ubuntu', sans-serif;
@@ -62,13 +64,20 @@ body{
 	border-bottom-right-radius:140px;
 
 	background-color: #88cc88;
+
+	vertical-align: middle;
+}
+.bannerCoinIcons{
+	height:27px;
+	width:51px;
+	vertical-align: middle;
 }
 .login{
 	/*display:inline-block;*/
 	float:right;
 	width: 400px;
-	margin:10px;
-	height:130px;
+	margin:0px;
+	height:100px;
 }
 .loginSubDiv{
 	float:left;
@@ -107,8 +116,8 @@ body{
 #windowWrap{ margin-top:180px; }
 .queuePage{
 	position:absolute;
-	width:1200px;
-	height:400px;
+	width:800px;
+	height:240px;
 
 	left:100px;
 	margin:20px;
@@ -120,26 +129,36 @@ body{
 	border-color: #ffffff;
 	border-radius: 40px;
 	border-bottom-right-radius: 400px;
-	line-height: 50px;
+	line-height: 1.1;
 
 	font-family: 'Ubuntu', sans-serif;
+
 }
 .cardNum{
-	font-size: 80px;
+	font-size: 50px;
 	width: 50px;
 	margin: 5px;
+	margin-left:20px;
 	left: 0px;
 	font-family: 'Pacifico', cursive;
 }
 #welcome{
 	font-size: 50px;
 	width: 200px;
-	margin: 35px;
+	margin-bottom: 20px;
 	margin-left:20px;
-	margin-right:50px;
+	margin-right:60px;
+	margin-top:10px;
 	left: 0px;
 	font-family: 'Pacifico', cursive;	
 
+}
+#newUserTitle{
+	font-size: 50px;
+	width: 220px;
+	margin-bottom: 20px;
+	left: 0px;
+	font-family: 'Pacifico', cursive;	
 }
 .cardTitle{
 	font-size: 50px;
@@ -158,10 +177,10 @@ body{
 	left: 0px;	
 }
 .iconBig{
-	margin:40px;
-	margin-left:65px;
-	width:100px;
-	height:auto;
+	margin-left:auto;
+	margin-right:auto;
+	display: block;
+	height: 140px;
 }
 /*buttons*/
 #buttonWrap{ 
@@ -174,17 +193,15 @@ body{
 	border-radius:40px;
 	border-bottom-right-radius:140px;
 
-	font-size:30px;
+	font-size:20px;
 	font-family: 'Ubuntu', sans-serif;
 	text-indent: 10px;
 	text-align: left;
 
 	width: 250px;
 
-	margin:30px;
-	margin-top:10px;
-	margin-left:50px;
-
+	margin:10px;
+	
 	border-style:solid;
 	border-width:2px;
 	border-color:#ffffff;
@@ -205,9 +222,12 @@ body{
 	display:inline;
 }
 .error{
-	width:280px;
 	font-size:13px;
 	line-height: 15px;
-	text-align: right;
+	text-align: center;
+}
+#fullHeight {
+	height:auto;
+	width: 222px;
 }
 /*temporary*/

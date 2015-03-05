@@ -1,17 +1,17 @@
 #bannerNavButtonWrapper
-	a(href="/guess" class="bannerNavButton") Make a guess <img src="images/--1-coin.png">
-	a(href="/hint" class="bannerNavButton") Make a hint <img src="images/+4-coins.png">
+	a(href="/guess" class="bannerNavButton") Make a guess <img class="bannerCoinIcons" src="images/--1-coin.png">
+	a(href="/hint" class="bannerNavButton") Make a hint <img class="bannerCoinIcons" src="images/+4-coins.png">
 	a(href="/userPage" class="bannerNavButton") Check your hints
 #bannerWrapper
 	.title(href="/")
 		strong= title 
 	.login
-		if(session.login)
-			table(style="height:134px")
-				tr
-					td
-						<img src="/images/icon inv colors.gif" style="margin-right:20px"> 
-					td
+		table(style="height:114px")
+			tr
+				td
+					<img src="/images/icon inv colors.gif" style="margin-right:20px"> 
+				td
+					if(session.login)
 						a(class="bannerNavButton" href="/userPage") #{session.login}
 						table
 							tr
@@ -22,13 +22,8 @@
 								td
 									form(action="/forget")	 
 										button(type="submit").bannerLogoutButton Logout
-		else
-			form(method="post" action="/login")
-				table(style="height:134px")
-					tr
-						td
-							<img src="/images/icon inv colors.gif" style="margin-right:20px"> 
-						td
+					else
+						form(method="post" action="/login")
 							input(type="text" name="usernameLogin" placeholder="Username")
 							br/
 							input(type="text" name="passwordLogin" placeholder="Password") 

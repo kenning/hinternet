@@ -1,10 +1,20 @@
 $(document).ready(function () {
-   $('.navButt, .bannerNavButton, .bannerLogoutButton').hover(function(){
+   $('.navButt, #submitBox, .bannerNavButton, .bannerLogoutButton').hover(function(){
       $(this).css('cursor', 'pointer');
-      $(this).css('background-color:#aaeeaa');
+      $(this).animate({
+         backgroundColor: "#aaeeaa"
+      }, 50);   
    }, function(){
       $(this).css('cursor', 'auto');
-      $(this).css('background-color:#88cc88');
+      if($(this).hasClass("navButt")) {
+         $(this).animate({
+            backgroundColor: "#55AA55"
+         }, 50);            
+      } else {
+         $(this).animate({
+            backgroundColor: "#88cc88"
+         }, 50);            
+      }
    });
 
    $('#guessLink').click(function(){

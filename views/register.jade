@@ -2,52 +2,60 @@ extends registerLayout
 
 block content
 	#windowWrap
-		.queuePage#g.right(style="font-size:20px")
+		.queuePage#g.right(style="font-size:18px")
 			table
 				tr
-					td
-						.cardTitleSpacer.center
-							.cardTitle New User
-							img(src="images/icon thinking.png" width="125px" height="200px").iconBig
-					td
+					td#fullHeight
+						#newUserTitle New User
+						img(src="images/icon thinking.png").iconBig
+					td(style="width:500px")
 						.center
+							|Please supply a username, password, 
 							br/
-							|Please supply a username, password and hint in case you forget.
+							|and a hint in case you forget.
 							if(session.unregisteredError)
 								
-						form(method="post")
-							table.table
+						form(method="post" style="font-size:15px")
+							<br>
+							table(style="width:100%")
 								tr
-									td.spacer
+									td.center
 										|Username: 
+										<br>
 										input(type="text" name="usernameSubmit")
 										if(session.usernameError)
 											.error= session.usernameError
 								tr
-									td
-										|Password:
+									td.center
+										|Password: 
+										<br>
 										input(type="password" name="passwordSubmit")
 										if(session.password1Error)
 											.error= session.password1Error
-									td
-										.spacerSecondColumn
-											|Password again:
+									td.center
+										.center
+											|Password again: 
+											<br>
 											input(type="password" name="passwordSecondSubmit")
 											if(session.password2Error)
 												.error= session.password2Error
 								tr
-									td
-										|Security hint:
+									td.center
+										|Security hint: 
+										<br>
 										input(type="text" name="passwordHintSubmit" placeholder='ex. "What is delicious?"')
 										if(session.hintError)
 											.error= session.hintError
-									td
-										.spacerSecondColumn 
-											|Security answer:
+									td.center
+										.center
+											|Security answer: 
+											<br>
 											input(type="text" name="passwordAnswerSubmit" placeholder='ex. "Candy"')
 											if(session.answerError)
 												.error= session.answerError
+								tr
+									td
 							div.center
-								input(type="submit" value="Register")
+								input(type="submit" value="Register" style="margin-right:10px margin-top:100px")  
 
 								p= session.userName

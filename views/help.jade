@@ -1,14 +1,17 @@
 extends helpLayout
 
 block content
+	#scrollDownDialog
+		b Scroll down!
 	#windowWrap
-		.queuePage#a.helpText
-			table
+		.queuePage#a.helpTextThirdLine
+			table(style="height:30px")
 				tr
 					td
 						.cardNum <strong> 1
 					td
-						x The hinter chooses a picture and makes a hint about it.
+						x The hinter chooses a picture and makes a hint about it. <br />
+						x Making a hint costs two coins.
 			<img class="cardImg" src="images/help/page 1.gif">
 
 		.queuePage#b.helpText
@@ -27,33 +30,28 @@ block content
 					td
 						x If the guesser guesses right, they get a coin!
 			<img class="cardImg" src="images/help/page 3.gif">
-		.queuePage#d.helpText
+		.queuePage#d.helpTextThirdLine
 			table
 				tr
 					td
 						.cardNum <strong> 4
 					td
-						x The hinter gets coins depending on how many of the guessers  
-				tr
-					td
-						.cardNum
-					td
-						x were correct. The hinter's goal is to get as close to 50% as possible.
+						x The hinter gets coins depending on how many of the <br />guessers  
+						x were correct. <br />The hinter's goal is to get as close to 50% as possible.
 			<img class="cardImgThirdLine" src="images/help/page 4.gif">
-		.queuePage#e.helpText
+		.queuePage#e.helpTextThirdLine
 			table
 				tr
 					td
 						.cardNum <strong> 5
 					td
-						x If 50% guessers are right (±5%), the hint enters the hall of fame
-				tr
-					td
-						.cardNum 
-					td
-						x for people to guess forever!
+						x If 50% guessers are right (±5%), the hint enters the hall of fame 
+						x for people to guess forever! (Not yet implemented)
 			<img class="cardImgThirdLine" src="images/help/page 5.gif">
-		.queuePage#f
-			.cardTitle#getStarted Get started! <br /> <br />
-			.navButt(style="width:400px") <a url="/guess"> Make a guess!
-			.navButt(style="width:400px") <a url="/hint"> Make a hint! (Costs 4 coins)
+		.queuePage#f(style="margin-bottom:300px")
+			.cardTitle#getStarted Get started! <br />
+			.navButt
+				x(style="vertical-align: middle;") <a url="/guess"> Make a guess! <img class="bannerCoinIcons" align="right" src="images/--1-coin.png">
+			.navButt
+				x(style="vertical-align: middle;") <a url="/hint"> Make a hint! <img class="bannerCoinIcons" align="right" src="images/+4-coins.png">
+		.queuePage#g(style="background-color:white")

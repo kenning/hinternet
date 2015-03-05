@@ -1,6 +1,5 @@
 .spacer{
-	width:300px;
-}
-.spacerSecondColumn{
-	margin-left:40px;
+	width:250px;
+	text-align: center;
+	line-height: 50px;
 }
