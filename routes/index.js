@@ -405,7 +405,7 @@ router.post('/register', function(req, res) {
 			else
 			{
 				//create a new user
-				urlList.findOne({Unused:true}, function(err, doc){
+				urlList.findAndModify({Unused:true}, {Unused:false}, function(err, doc){
 					console.log('Creating new user');
 					console.log('Username: ' + req.body.usernameSubmit);
 					console.log(doc);
