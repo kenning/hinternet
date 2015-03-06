@@ -405,7 +405,7 @@ router.post('/register', function(req, res) {
 			else
 			{
 				//create a new user
-				urlList.findAndModify({Unused:true}, {Unused:false}, function(err, doc){
+				urlList.findOne({Unused:true}, function(err, doc){
 					console.log('Creating new user');
 					console.log('Username: ' + req.body.usernameSubmit);
 					console.log(doc);
@@ -445,7 +445,17 @@ router.post('/register', function(req, res) {
 		req.session.regenerate(function(err){
 			if(!inputSanitize(req.body.usernameSubmit))
 				req.session.usernameError = "Please enter a valid username";
-3			res.redirect('/register');
+			if(!inputSanitize(req.body.passwordSubmit))
+				req.session.password1Error = 'Please enter a valid password';
+			if(!inputSanitize(req.body.passwordSecondSubmit))
+				req.session.password2Error = 'Please enter a valid password';
+			if(req.body.passwordSubmit !== req.body.passwordSecondSubmit)
+				req.session.password2Error = 'Passwords do not match';
+			if(!inputSanitize(req.body.passwordHintSubmit))
+				req.session.hintError = 'Please enter a valid security question';
+			if(!inputSanitize(req.body.passwordAnswerSubmit))
+				req.session.answerError = 'Please enter a valid answer to your question';
+			res.redirect('/register');
 		});
 	}
 });
