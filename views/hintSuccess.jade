@@ -2,13 +2,12 @@ extends hintLayout
 
 block content
 	#windowWrap
-		.successContainer
-			.queuePage
-				.cardNumWide
-					strong You made a hint! Great job!
-				table
-					tr
-						td
-							.imgbox(style="max-width:250px") <img src="#{session.submittedHintImg}" class="hintimg"> 
-						td
-							div(style="text-indent:40px") Your hint was: "#{session.submittedHint}"
+		.queuePage
+			div(style="font-size:55px;padding:40px;") You made a hint!
+			.hintContainer(style="width:600px; padding-left:50px;") 
+				.imgbox(style="max-width:250px" class="success") <img src="#{session.submittedHintImg}" class="hintimg"> 
+				|Your hint was: "#{session.submittedHint}"
+				br/
+				br/
+				br/
+			a(href="/hint" class="butt") Make another hint!

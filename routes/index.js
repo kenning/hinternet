@@ -9,8 +9,8 @@ var cookieparser = require('cookie-parser');
 var http = require('http');
 
 var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
-var db = monk(connectionString);
-//var db = monk('localhost:27017/testdb');
+//var db = monk(connectionString);
+var db = monk('localhost:27017/testdb');
 
 var urlList = db.get('testUrlList3');
 var users = db.get('userlist');
@@ -98,38 +98,49 @@ router.post('/hintSubmit', function(req, res){
 			);		
 
 			//update database entry as used
-			urlList.findOne({_id:req.session.nextHintImgId}, function(err, oldImgListDoc){
-				console.log('updating urlList database entry as used');
-				oldImgListDoc.Unused = false;
-				urlList.update({_id:oldImgListDoc._id}, oldImgListDoc, function(){
+			// urlList.findOne({_id:req.session.nextHintImgId}, function(err, oldImgListDoc){
+			// 	//BUG it should be used already!
+			// 	console.log('updating urlList database entry as used');
+			// 	oldImgListDoc.Unused = false;
+			// 	urlList.update({_id:oldImgListDoc._id}, oldImgListDoc, function(){
 
-					urlList.findOne({Unused:true}, function(err, newImgListDoc){
+					// urlList.findOne({Unused:true}, function(err, newImgListDoc){
+			urlList.findOne({Unused:true}, function(err, newImgListDoc){
 
-						users.findOne({username:req.session.login}, function(err, userDoc){
+				newImgListDoc.Unused = false;
 
-							userDoc.coins = userDoc.coins -4;
-							userDoc.nextHintImgId = newImgListDoc._id;
+				urlList.update({_id:newImgListDoc._id}, newImgListDoc, function() {
+					users.findOne({username:req.session.login}, function(err, userDoc){
 
-							users.update({_id:userDoc._id}, userDoc, function(){
-								console.log('updating user list and session info');
-								req.session.nextHintImgId = newImgListDoc._id;
-								req.session.coins = userDoc.coins;
-								req.session.submittedHintImg = SelectedImg;
-								req.session.submittedHint = req.body.hint;
-								console.log('successfully submitted hint!');
-								res.redirect('/hintSuccess');
-							});
+						userDoc.coins = userDoc.coins -2;
+						console.log("changing userDoc: the old imglistid was " + userDoc.nextHintImgId + " and the new one is " + newImgListDoc._id);
+						console.log("its ImgUrl1 element returns " + newImgListDoc.ImgUrl1);
+						userDoc.nextHintImgId = newImgListDoc._id;
+
+						users.update({_id:userDoc._id}, userDoc, function(){
+							console.log('updating user list and session info');
+							req.session.nextHintImgId = newImgListDoc._id;
+							req.session.coins = userDoc.coins;
+							req.session.submittedHintImg = SelectedImg;
+							req.session.submittedHint = req.body.hint;
+							console.log('successfully submitted hint!');
+							// urlList.findOne({ImgUrl1:newImgListDoc.ImgUrl1}, function(err, tryitoutDoc) {
+							// 	console.log("Let's see if these are the same:" + tryitoutDoc._id + " and " + newImgListDoc._id);
+							// });
+							res.redirect('/hintSuccess');
 						});
 					});
 				});
 			});
+				// });
+			// });
 		});
 	}
 	else {
 		delete req.session.hintSubmitError;
 		if(!inputSanitize(req.body.hint))
 			req.session.hintSubmitError = "Please submit a valid hint under 26 characters, only using A-Z, 1-9, ! . and ?";
-		if(req.body.group1 === 0)
+		if(req.body.group1 === 0 | !(req.body.group1))
 			req.session.hintSubmitError = "Please choose an image before making a hint";
 		if(!req.session.login && !inputSanitize(req.body.hint))
 			req.session.hintSubmitError = "Please choose an image and submit a valid hint, only A-Z 1-9 and ?";
@@ -143,10 +154,11 @@ router.get('/hintSuccess', function(req, res){
 });
 
 //
-//GUESS, POST GUESS, GUESSSUCCESS, GUESSFAILURE
+//GUESS, POST GUESS, GUESSSUCCESS
 //
 router.get('/guess', function(req, res){
 	//MUST SEARCH FOR GUESSES THAT ARE NOT FULL 
+	delete req.session.hintSubmitError;
 	var goodGuess;
 	var numberOfTries = 0;
 	if(req.session.login) {
@@ -362,10 +374,16 @@ router.get('/forget', function(req, res){
 });
 router.get('/userPage', function(req, res){
 	hintList.find({author:req.session.login}, function(err, doc){
-		console.log('going');
-		res.render('userPage', {title: 'User page', 
-								session: req.session,
-								createdHintList: doc });
+		if(err){ 
+			console.log(err); 
+		} else {
+			console.log('going');
+			console.log(doc);
+			console.log(req.session.login);
+			res.render('userPage', {title: 'User page', 
+									session: req.session,
+									createdHintList: doc });
+		}
 	});
 });
 
@@ -405,37 +423,41 @@ router.post('/register', function(req, res) {
 			else
 			{
 				//create a new user
-				urlList.findAndModify({Unused:true}, {Unused:false}, function(err, doc){
-					console.log('Creating new user');
-					console.log('Username: ' + req.body.usernameSubmit);
-					console.log(doc);
-					console.log("see, the doc is there.");
-					users.insert({	username: req.body.usernameSubmit,
-									password: req.body.passwordSubmit,
-									passwordHint: req.body.passwordHintSubmit,
-									passwordAnswer: req.body.passwordAnswerSubmit,
-									coins: 10,
-									hallOfFame: 0,
-									nextHintImgId: doc._id}, 
+				urlList.findOne({Unused:true}, function(err, doc){
+					doc.Unused = false;
+					urlList.update({_id:doc._id}, doc, function() {
+						console.log('Creating new user');
+						console.log('Username: ' + req.body.usernameSubmit);
+						console.log(doc);
+						console.log("see, the doc is there.");
+						users.insert(
+							{	
+								username: req.body.usernameSubmit,
+								password: req.body.passwordSubmit,
+								passwordHint: req.body.passwordHintSubmit,
+								passwordAnswer: req.body.passwordAnswerSubmit,
+								coins: 10,
+								hallOfFame: 0,
+								nextHintImgId: doc._id
+							}, function(error, info){
+								if(error) {
+									console.log(error);
+								} else {
+									req.session.login = req.body.usernameSubmit;
+									req.session.nextHintImgId = doc._id;
+									req.session.coins = 10;
 
-									function(error, info){
-										if(error) {
-											console.log(error);
-										} else {
-											req.session.login = req.body.usernameSubmit;
-											req.session.nextHintImgId = doc._id;
-											req.session.coins = 10;
+									doc.Unused = false;
 
-											doc.Unused = false;
+									console.log('Done! Here is the doc: ' + doc);
 
-											console.log('Done! Here is the doc: ' + doc);
+									urlList.update({_id:doc._id}, doc);
 
-											urlList.update({_id:doc._id}, doc);
-
-											res.redirect('/register-confirm');
-										}
-									}
-					);
+									res.redirect('/register-confirm');
+								}
+							}
+						);
+					});
 				});
 			}
 		});

@@ -1,28 +1,34 @@
 extends hintLayout
 
 block content
-	if(createdHintList.length == 0)
-		.gameContainer
-			.spacer
-			<br>
-				|You haven't made any hints yet! 
-	if(createdHintList.length !== 0)		
-		div.spacer
+	div.spacer
+		if(createdHintList.length == 0 | createdHintList.length == undefined | createdHintList.length == null)
+			.gameContainer
+				.spacer
+					<br>
+					|You haven't made any hints yet! 
+		else		
 			each hint in createdHintList
 				table.miniQueuePage
 					tr(style="height:200px")
 						td(style="width:40px")
 						td(style="width:240px")
-							div(style="width:150px" class="imgbox")
-								<img src='#{hint.correctImageUrl}' class="hintimg">
+							div(style="max-width:150px;max-height:140px;" class="imgbox")
+								<img src='#{hint.correctImageUrl}' class="hintimg" style="max-width:100px;max-height:140px;">
+								x(class='magnify userpage') <img src="images/maglass.png" class="maglass">
 						td
 							.userPageData
 								|Your hint was:
 								br/
 								strong "#{hint.hintText}" 
-								br/
-								|Hall of fame: #{hint.fame}
 							.userPageData
 								|Correct guesses: #{hint.correctGuesses}
 								br/
 								|Incorrect guesses: #{hint.incorrectGuesses}
+								br/
+								|Ratio: #{hint.correctGuesses/(hint.correctGuesses+hint.incorrectGuesses)}
+								br/
+								if(hint.fame)
+									|In the hall of fame!
+								else 
+									x(style="font-size:12px") Not in the hall of fame

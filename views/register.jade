@@ -2,60 +2,52 @@ extends registerLayout
 
 block content
 	#windowWrap
-		.queuePage#g.right(style="font-size:18px")
-			table
-				tr
-					td#fullHeight
-						#newUserTitle New User
-						img(src="images/icon thinking.png").iconBig
-					td(style="width:500px")
-						.center
-							|Please supply a username, password, 
-							br/
-							|and a hint in case you forget.
-							if(session.unregisteredError)
+		.queuePage
+			.queueTable
+				#leftColumn
+					#leftColumnTitle(style="font-size:50px") New User
+					img(src="images/icon thinking.png").leftColumnIcon
+				#rightColumn
+					.registerRightColumn
+						x(style="font-size:27px;width:100%;text-align:left;display:block;")
+							|Please supply a username, password, and a security question in case you forget.
 								
-						form(method="post" style="font-size:15px")
-							<br>
+						form.registerRightColumnForm(method="post")
 							table(style="width:100%")
 								tr
-									td.center
+									td.registerRightColumnPadding
 										|Username: 
 										<br>
 										input(type="text" name="usernameSubmit")
 										if(session.usernameError)
 											.error= session.usernameError
 								tr
-									td.center
+									td.registerRightColumnPadding
 										|Password: 
 										<br>
 										input(type="password" name="passwordSubmit")
 										if(session.password1Error)
 											.error= session.password1Error
-									td.center
-										.center
-											|Password again: 
-											<br>
-											input(type="password" name="passwordSecondSubmit")
-											if(session.password2Error)
-												.error= session.password2Error
+									td.registerRightColumnPadding
+										|Password again: 
+										<br>
+										input(type="password" name="passwordSecondSubmit")
+										if(session.password2Error)
+											.error= session.password2Error
 								tr
-									td.center
+									td.registerRightColumnPadding
 										|Security hint: 
 										<br>
 										input(type="text" name="passwordHintSubmit" placeholder='ex. "What is delicious?"')
 										if(session.hintError)
 											.error= session.hintError
-									td.center
-										.center
+									td.registerRightColumnPadding
 											|Security answer: 
 											<br>
 											input(type="text" name="passwordAnswerSubmit" placeholder='ex. "Candy"')
 											if(session.answerError)
 												.error= session.answerError
-								tr
-									td
-							div.center
-								input(type="submit" value="Register" style="margin-right:10px margin-top:100px")  
+							div
+								input.registerRightColumnPadding(type="submit" value="Register" style="margin-right:10px margin-top:100px")  
 
 								p= session.userName

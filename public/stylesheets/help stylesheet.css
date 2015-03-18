@@ -1,84 +1,89 @@
 /*for hint page*/
-#scrollDownDialog{
-	float:right;
+.helpNavBox{
 	background-color: #55AA55;
+
 	margin-top:200px;
-	margin-right:100px;
-	padding:50px;
+	margin-right:60px;
+	margin-left:60px;
+
+	padding:30px;
+	padding-right: 3%;
+
 	width:100px;
+
 	text-align: center;
-	border-radius:20px; 
-	border-bottom-right-radius:50px;
+	font-size: 20px;
+	font-weight: bold;
+
+	position: relative;
+	cursor: pointer;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #FFF;
+	border-radius: 30px 30px 140px;
+
+	z-index: 1;
 }
 .cardImg{
-	margin-left: 60px;
-	
-	height:170px;
+
+	height: 180px;	
 	width:auto;
+
+	position: absolute; 
+	bottom: 60px; 
+	left: 140px; 
 }
-.cardImgThirdLine{
+.cardNum{
+	font-size: 110px;
+	width: 50px;
+	margin: 5px;
+	margin-left:50px;
+	left: 0px;
+	font-family: 'Pacifico', cursive;
+	float:left;
+	height:100%;
+}
+.cardNumFinalPage{
+	font-size: 70px;
+	width: 1000px;
 	margin: 20px;
-	margin-top:10px;
-	margin-left: 100px;
-	/*this is for card images on cards with two lines of text*/
-	height:140px;
-	width: auto;
+	left: 0px;	
+	font-family: 'Pacifico', cursive;
 }
-.helpText{
-	font-size: 25px;
+.cardTitle{
+	margin: 50px;	
+	margin-top: 4%;
+
+	float:left;
+	
+	font-size: 26px;
+	font-family: 'Ubuntu', sans-serif;
+
+	width: 60%;
 }
-.helpTextThirdLine{
-	font-size: 25px;
-	padding-top:20px;
-}
-#a{ 
-	z-index: 0; 
-	top:220px;
-}
-#b{ 
-	z-index: 1; 
-	top:660px;
-}
-#c{ 
-	z-index: 2; 
-	top:1100px;
-}
-#d{ 
-	z-index: 3; 
-	top:1540px;
-}
-#e{
-	z-index: 4;
-	top:1980px;
-}
-#f{
-	z-index: 5;
-	top: 2420px;
-	margin-bottom: 40px;
-	border-width-bottom: 400px;
-}
-#g{
-	z-index: 0;
-	top: 2560px;
-}
-.navButt{
+
+.helpButt{
 	background-color: #55AA55;
+
+	font-size: 35px;
+	font-weight: bold;
+	
+	border-style: solid;
 	border-radius:40px;
 	border-bottom-right-radius:140px;
+	border-width: 2px;
+	border-color: #FFF;
+	border-radius: 30px 30px 140px;
 	
-	width: 260px;
-	height: 30px;
+	margin:40px;
+	margin-left:180px;
 
-	margin:20px;
-	margin-left:80px;
-
-	padding:3px;
-	padding-left:10px;
+	padding:15px;
+	padding-left:50px;
+	padding-right: 100px;
 
 	vertical-align: middle;
 }
-#getStarted{
-	width:500px;
-	margin:40px;
-	margin-top:30px;
+.both{
+	display:inline-block;
 }

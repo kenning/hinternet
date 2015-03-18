@@ -2,9 +2,8 @@ extends hintLayout
 
 block content
 	.gamecontainer
-		|Your hint was: "#{session.heldHintObject.hintText}"
-		br/
-		|Hint was supplied by: #{session.heldHintObject.author}
+		div(style="font-size:35px") Your hint was: "#{session.heldHintObject.hintText}"
+		div(style="font-size:13px") Hint supplied by: #{session.heldHintObject.author}
 		<br />
 		br/
 		if(session.correctImage == session.guessedImage)
@@ -13,19 +12,22 @@ block content
 			<img height="40px" width="40px" src="/images/coin.gif">
 			br/
 			br/
+		else 
+			|Your guess was incorrect.
+			br/
+			br/
 		table
 			tr
 				//td.border
 				td.hintContainer(style="width:300px") 
 					|Correct image 
 					br/
-					.imgbox <img position="relative src=#{session.correctImage} class="hintimg">
+					.imgbox <img position="relative" src=#{session.correctImage} class="hintimg success">
 				//td.border
 				td.hintContainer(style="width:300px")
-					|Chosen image
+					|Chosen image'
 					br/
-					.imgbox <img src=#{session.guessedImage} class="hintimg">
+					.imgbox <img src=#{session.guessedImage} class="hintimg success">
 				td
-					form(action="/guess")
-						input(type="submit" class="navButt" value="Guess again!")
+					a(href="/guess" class="butt") Guess again!
 		

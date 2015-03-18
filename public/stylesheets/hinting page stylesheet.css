@@ -22,7 +22,9 @@
 	vertical-align: middle;
 	margin: 5px;
 	max-height:250px;
+	position: relative;
 }
+
 .border{
 	display:inline-block;
 	background-color:#55AA55;
@@ -36,26 +38,61 @@
 .radio{
 	display:none;	
 }
-.selbox{
+
+/*
+magnifying glass
+*/
+/*.imgSizedSpacer{
+	display:inline-block;
 	padding:10px;
+	padding-top:0px;
+	padding-bottom: 0px;
 	width:110px;
+	vertical-align: middle;
+	margin:5px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	max-height: 110px;
+}
+*/
+.magnify{
+	width:30px;
+	height:30px;
+	right:0px;
+	bottom:0px;
 	margin: 5px;
+	margin-left: 40px;
+
 	border:0px;
 
 	vertical-align: middle;
 	font-size: 20px;
 	font-family: 'Ubuntu', sans-serif;
-	border-radius: 30px;
-	display:inline-block;
-	cursor: pointer;
-	background-color:#55AA55;
+	border-radius: 10px;
+	position: absolute;
+	cursor: -moz-zoom-in;
+	cursor: -webkit-zoom-in;
+	background-color:#ffffff;
 	text-align: center;
+
+	z-index: 1;
+}
+.maglass{
+	width: 20px;
+	height: 20px;
+	padding-top:5px;
+	margin:auto;
 }
 #submitBox{
 	padding:2%;
 	width:200px;
 	margin:5px;
-	border:0px; 
+
+	border-style: solid;
+	border-width: 3px;
+	border-color: #ffffff;
+	border-radius: 50px;
+	border-bottom-right-radius: 400px;
 
 	vertical-align:middle;
 	font-size: 28px;
@@ -68,11 +105,12 @@
 .hintimg{
 	max-width:100%;
 	text-align: left;
-	max-height:400px;
+	max-height:225px;
 	height:auto;
 	padding:auto;
 	margin-left: auto;
 	margin-right: auto;
+	display:block;
 }
 .successImage{
 	 height:250px; 

@@ -4,6 +4,46 @@ body{
 	font-family: 'Ubuntu', sans-serif;
 	font-size:20px;
 }
+/*
+Global
+*/
+.error{
+	font-size:13px;
+	line-height: 15px;
+	text-align: center;
+}
+.butt{
+	background-color: #55AA55;
+
+	font-size: 25px;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+	
+	border-style: solid;
+	border-radius:40px;
+	border-bottom-right-radius:140px;
+	border-width: 2px;
+	border-color: #FFF;
+	border-radius: 30px 30px 140px;
+	
+	margin:40px;
+	margin-left:40px;
+
+	padding:10px;
+	padding-left:30px;
+	padding-right: 50px;
+
+	vertical-align: middle;
+}
+.noDecoLink{
+	color: black;
+	text-decoration: none;
+
+}
+/*
+Banner
+*/
 #bannerWrapper{
 	background-color: #55AA55;
 	margin: 15px;
@@ -73,7 +113,6 @@ body{
 	vertical-align: middle;
 }
 .login{
-	/*display:inline-block;*/
 	float:right;
 	width: 400px;
 	margin:0px;
@@ -113,19 +152,25 @@ body{
 	width:60px;
 }
 
+/*
+Queue page stuff
+*/
 #windowWrap{ margin-top:180px; }
 .queuePage{
 	position:absolute;
-	width:800px;
-	height:240px;
+	width:70%;
+	height:60%;
+	min-width: 800px;
+	min-height: 300px;
+	padding-bottom: 10%;
 
-	left:100px;
-	margin:20px;
-	padding:10px;
+	left:10%;
+	margin:1%;
+	padding:1%;
 
 	background-color: #88cc88;
 	border-style: solid;
-	border-width: 3px;
+	border-width: .5%;
 	border-color: #ffffff;
 	border-radius: 40px;
 	border-bottom-right-radius: 400px;
@@ -133,72 +178,65 @@ body{
 
 	font-family: 'Ubuntu', sans-serif;
 
+	z-index: 0;
 }
-.cardNum{
-	font-size: 50px;
-	width: 50px;
-	margin: 5px;
-	margin-left:20px;
-	left: 0px;
-	font-family: 'Pacifico', cursive;
+.queueTable{
+	width: 100%;
+	height: 100%;
 }
-#welcome{
-	font-size: 50px;
-	width: 200px;
-	margin-bottom: 20px;
-	margin-left:20px;
-	margin-right:60px;
-	margin-top:10px;
-	left: 0px;
+#leftColumn {
+	height:100%;
+	width: 30%;
+	min-height: 300px;
+	min-width: 200px;
+	float:left;
+	padding-right: 4%;
+}
+#leftColumnTitle{
+	font-size: 60px;
+	margin:auto;	
 	font-family: 'Pacifico', cursive;	
-
+	width: auto;
+	height: 20%;
+	padding:10%;
+	min-width: 222px;
 }
-#newUserTitle{
-	font-size: 50px;
-	width: 220px;
-	margin-bottom: 20px;
-	left: 0px;
-	font-family: 'Pacifico', cursive;	
-}
-.cardTitle{
-	font-size: 50px;
-	width: 240px;
-	margin: 15px;
-	margin-left:30px;
-	margin-right:50px;
-	margin-bottom:0px;
-	left: 0px;
-	font-family: 'Pacifico', cursive;	
-}
-.cardNumWide{
-	font-size: 50px;
-	width: 1000px;
-	margin: 20px;
-	left: 0px;	
-}
-.iconBig{
-	margin-left:auto;
-	margin-right:auto;
+.leftColumnIcon{
+	margin:auto;
 	display: block;
-	height: 140px;
+	height: 60%;
+	width: auto;
 }
-/*buttons*/
-#buttonWrap{ 
-	position: absolute;
-	top:680px; 
-	left:100px;
+#rightColumn {
+	height: 100%;
+	width: 60%;
+	min-width: 300px;
+	float:left;
+	font-size: 30px;
 }
-.navButt{
+
+/*
+page-specific: splash
+*/
+.splashRightColumn{
+	padding-top: 5%;
+}
+/*
+page-specific: help
+*/
+
+/*.navButt{
 	background-color: #55AA55;
 	border-radius:40px;
 	border-bottom-right-radius:140px;
 
-	font-size:20px;
+	font-size:27px;
 	font-family: 'Ubuntu', sans-serif;
-	text-indent: 10px;
+	text-indent: 20px;
 	text-align: left;
 
 	width: 250px;
+	height:60px;
 
 	margin:10px;
 	
@@ -209,25 +247,25 @@ body{
 	padding:8px;
 	padding-left:10px;
 }
-.center{
-	text-align:center;
-}
-.right{
-	text-align:right;
-}
-.left{
-	text-align:left;
-}
-.inline{
-	display:inline;
-}
-.error{
-	font-size:13px;
-	line-height: 15px;
+*/
+.registerRightColumn{
+	padding-top: 7%;
+	display: block;
+	padding-right: 10%;	
+	font-size: 22px;
 	text-align: center;
+	width: 80%;
 }
-#fullHeight {
-	height:auto;
-	width: 222px;
+.registerRightColumnPadding{
+	padding: 1%;
 }
-/*temporary*/
+.registerRightColumnForm{
+	padding-top: 3%;
+}
+/*
+register confirm
+*/
+.registerConfirmButt{
+	font-size: 35px;
+
+}
