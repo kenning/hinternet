@@ -139,7 +139,7 @@ router.post('/hintSubmit', function(req, res){
 	else {
 		delete req.session.hintSubmitError;
 		if(!inputSanitize(req.body.hint))
-			req.session.hintSubmitError = "Please submit a valid hint under 26 characters, only using A-Z, 1-9, ! . and ?";
+			req.session.hintSubmitError = "Please submit a valid hint under 26 characters, only using A-Z, 1-9, ! . ' and ?";
 		if(req.body.group1 === 0 | !(req.body.group1))
 			req.session.hintSubmitError = "Please choose an image before making a hint";
 		if(!req.session.login && !inputSanitize(req.body.hint))
@@ -490,7 +490,7 @@ router.get('/register-confirm', function(req, res){
 //UTILITIES
 //
 function inputSanitize(userInput){
-	if(userInput.match(/^[ 0-9a-zA-Z?.!]{1,26}$/)) {
+	if(userInput.match(/^[ 0-9a-zA-Z?.!']{1,26}$/)) {
 		console.log(userInput + " is valid");
 		return true;
 	}
