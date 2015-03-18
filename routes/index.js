@@ -9,8 +9,8 @@ var cookieparser = require('cookie-parser');
 var http = require('http');
 
 var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
-//var db = monk(connectionString);
-var db = monk('localhost:27017/testdb');
+var db = monk(connectionString);
+//var db = monk('localhost:27017/testdb');
 
 var urlList = db.get('testUrlList3');
 var users = db.get('userlist');

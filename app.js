@@ -8,8 +8,8 @@ var mongo = require('mongodb');
 var monk = require('monk');
 
 var connectionString = process.env.CUSTOMCONNSTR_MONGOLAB_URI;
-var db = monk('localhost:27017/testdb');
-//var db = monk(connectionString);
+//var db = monk('localhost:27017/testdb');
+var db = monk(connectionString);
 
 
 var routes = require('./routes/index');
