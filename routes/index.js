@@ -47,6 +47,15 @@ router.get('/hint', function(req, res){
 		res.redirect('/register');
 	}
 });
+router.get('/azuretest', function(req, res) {
+	res.send('hello');
+	router.post('https://hooks.slack.com/services/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',
+      { 'text': 'azure really, really works' }, function(err, req, res) {
+    if(err) console.log(err);
+    console.log('%d -> %j', res.statusCode, res.headers);
+    console.log('%j', obj);
+  });
+})
 router.post('/hintSubmit', function(req, res){
 	console.log('getting ready to submit a hint');
 	if(req.session.login && inputSanitize(req.body.hint) &&
